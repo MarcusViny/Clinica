@@ -10,8 +10,11 @@ abstract class Crud
         $selectSql = "SELECT * FROM {$this->tabela}";
         return Conexao::query($selectSql);
     }
-    public function buscar($campo,$id){
-        $selectSql= "SELECT +FROM {$this->tabela} WHERE $campo = $id";
-        return Conexao::query($selectSql);
+    public function buscar($campo, $id)
+    {
+        $selectSql = "SELECT * FROM {$this->tabela} WHERE $campo = {$id}";
+        
+        $daddos = Conexao::query($selectSql);
+        return $daddos->fetch_object();
     }
 }
