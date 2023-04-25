@@ -22,20 +22,23 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="especialidadeGer.php">Especidade</a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="especialidade.php#">Especialidade</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="especialidadeGer.php">Consultar Especidade</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pacienteGer.php">Paciente</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link">Consultas</a>
-                            </li>
-                        </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pacienteGer.php">Paciente</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Consultas</a>
+                        </li>
+                    </ul>
                     </div>
                 </div>
             </nav>

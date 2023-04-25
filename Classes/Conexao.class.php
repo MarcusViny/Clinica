@@ -9,19 +9,19 @@ final class Conexao
     {
         try {
             if (!(defined('db_user'))) {
-                define('db_user', 'marcus');
+                define('db_user', 'Marcus');
             }
             if (!defined('db_host')) {
                 define('db_host', 'localhost');
             }
             if (!defined('db_pass')) {
-                define('db_pass', 'root');
+                define('db_pass', '');
             }
             if (!defined('db_name')) {
-                define('db_name', 'Clinica');
+                define('db_name', 'clinica');
             }
             if (!defined('db_port')) {
-                define('db_port', 3360);
+                define('db_port', 3306);   //Lembre-se de Trocar 
             }   
 
             $db = new mysqli(db_host, db_user, db_pass, db_name, db_port) or die('Erro ao conectar' . $db->connect_error);

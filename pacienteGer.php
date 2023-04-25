@@ -18,15 +18,18 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="especialidade.php#">Especialidade</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pacienteGer.php">Cadastrar Paciente</a>
+                                <a class="nav-link" href="especialidadeGer.php">Consultar Especidade</a>
+                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pacienteGer.php">Paciente</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
+                        <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link">Consultas</a>
