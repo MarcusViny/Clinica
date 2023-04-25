@@ -20,13 +20,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="especialidadeGer.php">Especidade</a>
+                            <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="especialidade.php">Consultar Especialidades</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pacienteGer.php">Paciente</a>
+                            <a class="nav-link" href="pacienteGer.php">Cadastrar Paciente</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
@@ -50,7 +47,12 @@
                 $paciente = new Paciente();
                 $editPac = $paciente->buscar('idPac', $id);
             }
-
+            if (fiLter_has_var(INPUT_GET, "idDel")) {
+                $id = filter_input(INPUT_GET, 'idDel');
+                if ($paciente->deletar('idPac',$id)){
+                    header("location:pacientes.php");
+                }
+            }
             if (filter_has_var(INPUT_POST, 'btnGravar')) {
                 if (isset($_FILES['filFoto'])) {
                     $ext = strtolower(pathinfo($_FILES['filFoto']['name'], PATHINFO_EXTENSION));
@@ -79,8 +81,7 @@
                 } else {
                     $paciente->atualizar('idPac', $id);
                 }
-            }
-            ?>
+            }?>
             <form class="row g-3" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="txtId" value="<?php echo isset($editPac->idPac) ? $editPac->idPac : null; ?>">
                 <input type="hidden" name="nomeAntigo" value="<?php isset($editPac->fotoPac) ? $editPac->fotoPac : null; ?>">
@@ -105,7 +106,6 @@
                     <?php $estadoSelec = isset($editPac->estadoPac) ?
                         $editPac->estadoPac : null; ?>
                     <select id="sltEstado" class="form-select" name="sltEstado">
-
                         <option value="" selected hidden>Escolha...</option>
                         <option value="AC" <?php if ($estadoSelec == "AC") {
                                                 echo 'selected';
@@ -183,7 +183,6 @@
                         <option value="SC" <?php if ($estadoSelec == "SP") {
                                                 echo 'selected';
                                             } ?>>São Paulo</option>
-
                         <option value="SE">Sergipe</option>
                         <option value="TO">Tocantins</option>
                     </select>
@@ -215,8 +214,6 @@
             </form>
         </div>
     </main>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
-
 </html>

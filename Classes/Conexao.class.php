@@ -9,7 +9,7 @@ final class Conexao
     {
         try {
             if (!(defined('db_user'))) {
-                define('db_user', 'root');
+                define('db_user', 'marcus');
             }
             if (!defined('db_host')) {
                 define('db_host', 'localhost');

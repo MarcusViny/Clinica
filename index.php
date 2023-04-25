@@ -21,13 +21,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="especialidadeGer.php">Especidade</a>
+                            <a class="nav-link active" aria-current="page" href="especialidadeGer.php#">Especialidade</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pacienteGer.php">Paciente</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
+                        <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link">Consultas</a>

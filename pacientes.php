@@ -27,9 +27,6 @@
                                 <a class="nav-link" href="especialidadeGer.php">Especidade</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="especialidade.php">Consultar Especialidades</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="pacienteGer.php">Paciente</a>
                             </li>
                             <li class="nav-item">
@@ -65,22 +62,23 @@
                 while ($row = $dadosBanco->fetch_object()) {
                 ?>
                     <tr>
-                        <td>
-                            <a href="pacienteGer.php?id=<?php echo
-                                                        $row->idPac ?>" class="btn btn-secondary">
+                        <td class="align-middle">
+                            <a href="pacienteGer.php?id=<?php echo $row->idPac ?>
+                                " class="btn btn-info">
                                 <span class="material-symbols-outlined">
                                     edit_square
                                 </span>
                             </a>
-                            <a href="#" class="btn btn-secondary">
+                            <a href="pacienteGer.php?idDel=<?php echo $row->idPac ?>
+                                " class="btn btn-danger" onclick="return confirm('Deseja realmente excluir o registro')">
                                 <span class="material-symbols-outlined">
                                     delete
                                 </span>
                             </a>
                         </td>
                         <td>
-                            <img src="imagemPac/<?php echo $row->fotoPac; ?>" class="imgred" alt="Foto do paciente<?php
-                                                                                                                    echo $row->nomePac; ?>">
+                            <img src="imagemPac/<?php echo $row->fotoPac; ?>" class="imgred" alt="Foto do paciente
+                            <?php echo $row->nomePac; ?>">
                         </td>
                         <td>
                             <?php echo $row->nomePac; ?>
