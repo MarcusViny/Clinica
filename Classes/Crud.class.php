@@ -17,4 +17,8 @@ abstract class Crud
         $daddos = Conexao::query($selectSql);
         return $daddos->fetch_object();
     }
+    public function deletar($campo,$idDel)
+    {
+        $selectSql="DELETE FROM {$this->tabela}where $campo={$idDel}";
+    }
 }

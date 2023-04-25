@@ -20,10 +20,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home</a>
+                            <a class="nav-link" href="especialidadeGer.php">Especidade</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pacienteGer.php">Cadastrar Paciente</a>
+                            <a class="nav-link" href="especialidade.php">Consultar Especialidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pacienteGer.php">Paciente</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
@@ -50,11 +53,10 @@
 
             if (filter_has_var(INPUT_POST, 'btnGravar')) {
                 if (isset($_FILES['filFoto'])) {
-                    $ext = strtolower(pathinfo($_FILES['filFoto']
-                    ['name'], PATHINFO_EXTENSION));                    
+                    $ext = strtolower(pathinfo($_FILES['filFoto']['name'], PATHINFO_EXTENSION));
                     $nomeArq = filter_input(INPUT_POST, 'nomeAntigo');
-                    if(empty($nomeArq)){
-                    $nomeArq = md5(date("Y.m.d-H.i.s")) . '.' . $ext;
+                    if (empty($nomeArq)) {
+                        $nomeArq = md5(date("Y.m.d-H.i.s")) . '.' . $ext;
                     }
                     $local = "imagemPac/";
                     move_uploaded_file($_FILES['filFoto']['tmp_name'], $local . $nomeArq);
@@ -81,26 +83,22 @@
             ?>
             <form class="row g-3" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="txtId" value="<?php echo isset($editPac->idPac) ? $editPac->idPac : null; ?>">
-                <input type="hidden" name="nomeAntigo" value="<?php isset
-                ($editPac->fotoPac)?$editPac->fotoPac:null;?>">
+                <input type="hidden" name="nomeAntigo" value="<?php isset($editPac->fotoPac) ? $editPac->fotoPac : null; ?>">
                 <div class="col-12">
                     <label for="txtNome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome..." name="txtNome" value="<?php echo isset($editPac->nomePac) ? $editPac->nomePac : null; ?>">
                 </div>
                 <div class="col-12">
                     <label for="txtEndereco" class="form-label">Endereço</label>
-                    <input type="text" class="form-control" id="txtEndereco" placeholder="Digite seu endereço..." name="txtEndereco" 
-                    value="<?php echo isset($editPac->enderecoPac) ? $editPac->enderecoPac : null; ?>">
+                    <input type="text" class="form-control" id="txtEndereco" placeholder="Digite seu endereço..." name="txtEndereco" value="<?php echo isset($editPac->enderecoPac) ? $editPac->enderecoPac : null; ?>">
                 </div>
                 <div class="col-12">
                     <label for="txtBairro" class="form-label">Bairro</label>
-                    <input type="text" class="form-control" id="txtBairro" placeholder="Digite seu bairro..." name="txtBairro"
-                    value="<?php echo isset($editPac->bairroPac) ? $editPac->bairroPac : null; ?>">
+                    <input type="text" class="form-control" id="txtBairro" placeholder="Digite seu bairro..." name="txtBairro" value="<?php echo isset($editPac->bairroPac) ? $editPac->bairroPac : null; ?>">
                 </div>
                 <div class="col-md-6">
                     <label for="txtCidade" class="form-label">Cidade</label>
-                    <input type="text" class="form-control" id="txtCidade" placeholder="Digite sua cidade..." name="txtCidade"
-                    value="<?php echo isset($editPac->cidadePac) ? $editPac->cidadePac : null; ?>">
+                    <input type="text" class="form-control" id="txtCidade" placeholder="Digite sua cidade..." name="txtCidade" value="<?php echo isset($editPac->cidadePac) ? $editPac->cidadePac : null; ?>">
                 </div>
                 <div class="col-md-4">
                     <label for="sltEstado" class="form-label">Estado</label>
@@ -192,23 +190,19 @@
                 </div>
                 <div class="col-md-2">
                     <label for="txtCep" class="form-label">Cep</label>
-                    <input type="text" class="form-control" id="txtCep" name="txtCep"
-                    value="<?php echo isset($editPac->cepPac) ? $editPac->cepPac : null; ?>">
+                    <input type="text" class="form-control" id="txtCep" name="txtCep" value="<?php echo isset($editPac->cepPac) ? $editPac->cepPac : null; ?>">
                 </div>
                 <div class="col-12">
                     <label for="txtEmail" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="txtEmail" placeholder="Digite seu email..." name="txtEmail"
-                    value="<?php echo isset($editPac->emailPac) ? $editPac->emailPac : null; ?>">
+                    <input type="email" class="form-control" id="txtEmail" placeholder="Digite seu email..." name="txtEmail" value="<?php echo isset($editPac->emailPac) ? $editPac->emailPac : null; ?>">
                 </div>
                 <div class="col-md-6">
                     <label for="txtNascimento" class="form-label">Nascimento</label>
-                    <input type="date" class="form-control" id="txtNascimento" name="txtNascimento"
-                    value="<?php echo isset($editPac->nascimentoPac) ? $editPac->nascimentoPac : null; ?>">
+                    <input type="date" class="form-control" id="txtNascimento" name="txtNascimento" value="<?php echo isset($editPac->nascimentoPac) ? $editPac->nascimentoPac : null; ?>">
                 </div>
                 <div class="col-md-6">
                     <label for="txtCelular" class="form-label">Celular</label>
-                    <input type="text" class="form-control" id="txtCelular" name="txtCelular"
-                    value="<?php echo isset($editPac->celularPac) ? $editPac->celularPac : null; ?>">
+                    <input type="text" class="form-control" id="txtCelular" name="txtCelular" value="<?php echo isset($editPac->celularPac) ? $editPac->celularPac : null; ?>">
                 </div>
                 <div class="col-12">
                     <input type="hidden" name="nomeAntigo">
