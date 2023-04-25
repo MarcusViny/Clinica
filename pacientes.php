@@ -17,28 +17,25 @@
         <header>
             <nav class="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Clinica IFRO</a>
+                    <a class="navbar-brand" href="index.php">Clinica IFRO</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="especialidade.php#">Especialidade</a>
-                        </li>
-                        <li class="nav-item">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="especialidade.php#">Especialidade</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="especialidadeGer.php">Consultar Especidade</a>
                             </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pacienteGer.php">Paciente</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link">Consultas</a>
-                        </li>
-                    </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pacienteGer.php">Paciente</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>

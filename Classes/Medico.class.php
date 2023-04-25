@@ -3,7 +3,6 @@
 class Medico extends Crud
 {
     protected $tabela = 'Medico';
-    private $idPac;
     private $nomeMed;
     private $crmMed;
     private $emailMed;
@@ -19,16 +18,15 @@ class Medico extends Crud
      * @param mixed $nomeMed
      * @return self
      */
-    public function getcrmMed($crmMed): self
+    public function getCrmMed()
     {
-        $this->crmMed = $crmMed;
-        return $this;
+        return $this->crmMed ;
     }
-
     /**
-     * @return mixed
+     * @return mixed $crmMed
+     * @return self
      */
-    public function getemailMed()
+    public function getEmailMed()
     {
         return $this->emailMed;
     }
@@ -37,13 +35,12 @@ class Medico extends Crud
      * @param mixed $emailMed
      * @return self
      */
-    public function getcelularMed($celularMed): self
+    public function getCelularMed()
     {
-        $this->celularMed = $celularMed;
-        return $this;
+        return $this->celularMed;
     }
     /**
-     * @param mixed $emailMed
+     * @param mixed $celularMed
      * @return self
      */
 
@@ -52,8 +49,8 @@ class Medico extends Crud
         $nome = $this->getNomeMed();
         $crm = $this->getcrmMed();
         $bairro = $this->getBairroPac();
-        $email = $this->getemailMed();
-        $celular = $this->getcelularMed();
+        $email = $this->getEmailMed();
+        $celular = $this->getCelularMed();
         $foto = $this->getFotoPac();
 
         $sqlInserir = "INSERT INTO $this->tabela (nomePac, enderecoPac, bairroPac, cidadePac, estadoPac, cepPac, nascimentoPac, emailPac, celularPac, fotoPac) VALUES ('$nome', '$endereco', '$bairro', '$cidade', '$estado', '$cep', '$nascimento', '$email', '$celular', '$foto')";

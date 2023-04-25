@@ -3,6 +3,29 @@
 class Especialidade extends Crud
 {
     protected $tabela = 'Especialidade';
+    private $idEsp;
+    /**
+     * @return mixed
+     */
+    public function getidEsp()
+    {
+        return $this->idEsp;
+    }
+
+    /**
+     * @param mixed $idEsp 
+     * @return self
+     */
+    public function setidEsp($idEsp): self
+    {
+        $this->idEsp = $idEsp;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    
     private $NomeEsp;
         /**
      * @return mixed

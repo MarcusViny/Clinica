@@ -17,7 +17,7 @@
         <header>
             <nav class="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Clinica IFRO</a>
+                    <a class="navbar-brand" href="index.php">Clinica IFRO</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -27,9 +27,6 @@
                                 <a class="nav-link" href="especialidade.php">Especidade</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="especialidadeGer.php">Consultar Especidade</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="especialidade.php">Consultar Especialidades</a>
                             </li>
                             <li class="nav-item">
@@ -37,9 +34,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link">Consultas</a>
                             </li>
                         </ul>
                     </div>
@@ -68,7 +62,7 @@
                 ?>
                     <tr>
                         <td>
-                            <a href="especialidadeGer.php?id=<?php echo $row->idPac ?>
+                            <a href="especialidadeGer.php?id=<?php echo $row->setIdEsp ?>
                                 " class="btn btn-secondary">
                                 <span class="material-symbols-outlined">
                                     edit_square
@@ -81,13 +75,7 @@
                             </a>
                         </td>
                         <td>
-                            <?php echo $row->nomePac; ?>
-                        </td>
-                        <td>
-                            <?php echo $row->cidadePac; ?>
-                        </td>
-                        <td>
-                            <?php echo $row->nascimentoPac; ?>
+                            <?php echo $row->setnomeEsp; ?>
                         </td>
                     </tr>
                 <?php
@@ -96,9 +84,9 @@
             </tbody>
         </table>
         <div class="coll-12">
-            <a href="pacienteGer.php" class="btn btn-primary">
+            <a href="especialidadeGer.php" class="btn btn-primary">
                 <span class="material-smbols-outlined">
-                    Adicione um novo paciente
+                    Adicione uma nova Especidade
                 </span>
             </a>
         </div>
