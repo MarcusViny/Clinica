@@ -7,18 +7,18 @@ abstract class Crud
 
     public function listar()
     {
-        $selectSql = "SELECT * FROM {$this->tabela}";
-        return Conexao::query($selectSql);
+        $selectSql = "SELECT * FROM {$this -> tabela}";
+        return Conexao :: query ( $selectSql);
     }
-    public function buscar($campo, $id)
+    public function buscar ($campo, $id)
     {
-        $selectSql = "SELECT * FROM {$this->tabela} WHERE $campo = {$id}";
+        $selectSql = "SELECT * FROM {$this-> tabela } WHERE $campo = {$id}";
         
         $daddos = Conexao::query($selectSql);
         return $daddos->fetch_object();
     }
     public function deletar ($campo,$id){
-        $sqlDelete = "DELETE FROM {$this->tabela} WHERE$campo = $id";
-        return Conexao :: query($sqlDelete);
+        $sqlDelete = " DELETE FROM {$this -> tabela} WHERE $campo = {$id}";
+        return Conexao :: query ( $sqlDelete);
     }
 }

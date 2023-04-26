@@ -24,10 +24,10 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="especialidade.php">Especidade</a>
+                                <a class="nav-link" href="especialidadeGer.php">Especialidade</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="especialidade.php">Consultar Especialidades</a>
+                                <a class="nav-link" href="especialidade.php">Consultar Especialidade</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="pacienteGer.php">Paciente</a>
@@ -47,8 +47,7 @@
                 <tr>
                     <th scope="col">Acão</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Cidade</th>
-                    <th scope="col">Idade</th>
+                    <th scope="col">Especialidade</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,21 +60,25 @@
                 while ($row = $dadosBanco->fetch_object()) {
                 ?>
                     <tr>
-                        <td>
-                            <a href="especialidadeGer.php?id=<?php echo $row->setIdEsp ?>
-                                " class="btn btn-secondary">
+                        <td class="aling-middle">
+                            <a href="especialidadeGer.php?id=<?php echo $row->idEsp ?>
+                                "class="btn btn-info">
                                 <span class="material-symbols-outlined">
                                     edit_square
                                 </span>
                             </a>
-                            <a href="#" class="btn btn-secondary">
+                            <a href="especialidadeGer.php?idDel=<?php echo $row ->idEsp ?>
+                                "class="btn btn-danger" onclick="return confirm('Desejsa realmente excluir essa Especialidade?')">
                                 <span class="material-symbols-outlined">
-                                    delete
+                                    Delete
                                 </span>
                             </a>
                         </td>
                         <td>
-                            <?php echo $row->setnomeEsp; ?>
+                            <?php echo $row->NomeEsp; ?>
+                        </td>
+                        <td>
+                            <?php echo $row->SelecEsp;?>
                         </td>
                     </tr>
                 <?php
@@ -83,10 +86,10 @@
                 ?>
             </tbody>
         </table>
-        <div class="coll-12">
+        <div class="coll-6">
             <a href="especialidadeGer.php" class="btn btn-primary">
                 <span class="material-smbols-outlined">
-                    Adicione uma nova Especidade
+                    Adicione uma nova Especialidade
                 </span>
             </a>
         </div>

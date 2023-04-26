@@ -15,7 +15,7 @@ final class Conexao
                 define('db_host', 'localhost');
             }
             if (!defined('db_pass')) {
-                define('db_pass', '');
+                define('db_pass', 'root');
             }
             if (!defined('db_name')) {
                 define('db_name', 'clinica');

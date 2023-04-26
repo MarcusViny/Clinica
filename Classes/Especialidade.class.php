@@ -1,5 +1,4 @@
 <?php
-
 class Especialidade extends Crud
 {
     protected $tabela = 'Especialidade';
@@ -11,7 +10,6 @@ class Especialidade extends Crud
     {
         return $this->idEsp;
     }
-
     /**
      * @param mixed $idEsp 
      * @return self
@@ -21,13 +19,12 @@ class Especialidade extends Crud
         $this->idEsp = $idEsp;
         return $this;
     }
-
     /**
      * @return mixed
      */
-    
+
     private $NomeEsp;
-        /**
+    /**
      * @return mixed
      */
     /**
@@ -37,7 +34,6 @@ class Especialidade extends Crud
     {
         return $this->NomeEsp;
     }
-
     /**
      * @param mixed $NomeEsp
      * @return self
@@ -47,27 +43,45 @@ class Especialidade extends Crud
         $this->NomeEsp = $NomeEsp;
         return $this;
     }
-
-    
+    // nao sei oq fazer 
+    private $SelecEsp;
+    /**
+     * @return mixed
+     */
+    /**
+     * @return mixed
+     */
+    public function getSelecEsp()
+    {
+        return $this->SelecEsp;
+    }
+    /**
+     * @param mixed $SelecEsp
+     * @return self
+     */
+    public function setSelecEsp($SelecEsp): self
+    {
+        $this->SelecEsp = $SelecEsp;
+        return $this;
+    }
     public function inserir()
     {
         $nome = $this->getNomeEsp();
-        
-
-        $sqlInserir = "INSERT INTO $this->tabela (NomeEsp) VALUES ('$nome')";
-        if (Conexao::query($sqlInserir)) {
+        $seleciona = $this->getSelecEsp();
+        $sqlInserir = "INSERT INTO $this->tabela (NomeEsp,SelecEsp) 
+        VALUES ('$nome','$seleciona')";
+        if (Conexao::query($sqlInserir)) 
+        {
             header('location: especialidade.php');
         }
     }
-
     /**
      *
      * @param mixed $campo
      * @param mixed $id
      * @return mixed
      */
-    public function atualizar($campo, $id){
-        
+    public function atualizar($campo, $id)
+    {
     }
-
 }
