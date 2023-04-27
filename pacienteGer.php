@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Estilos/stylo.css">
+    <link rel="stylesheet" type="text/css" href="Estilos/stylo.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Pacientes</title>
 </head>
 
-<body>
+<body id="meu-body">
     <header>
         <nav class="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
@@ -91,12 +92,6 @@
                     <div class="col-12">
                         <label for="txtNome" class="form-label">Nome <span class="required">*</span></label>
                         <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome..." name="txtNome" value="<?php echo isset($editPac->nomePac) ? $editPac->nomePac : null; ?>" required>
-                        <style>
-                            .required {
-                                color: red;
-                                margin-left: 5px;
-                            }
-                        </style>
                     </div>
                     <div class="col-12">
                         <label for="txtEndereco" class="form-label">Endereço</label>
@@ -204,20 +199,14 @@
                         <label for="txtEmail" class="form-label">E-mail <span class="required">*</span> </label>
                         <input type="email" class="form-control" id="txtEmail" placeholder="Digite seu email..." name="txtEmail" value="<?php echo isset($editPac->emailPac) ? $editPac->emailPac : null; ?>">
                     </div>
-                    <style>
-                        .required {
-                            color: red;
-                            margin-left: 5px;
-                        }
-                    </style>
                     <div class="col-md-6">
                         <label for="txtNascimento" class="form-label">Nascimento</label>
                         <input type="date" class="form-control" id="txtNascimento" name="txtNascimento" value="<?php echo isset($editPac->nascimentoPac) ? $editPac->nascimentoPac : null; ?>">
                     </div>
                     <div class="col-md-6">
-                        <label for="txtCelular" class="form-label">Celular</label>
+                        <label for="txtCelular" class="form-label">Celular <span class="required">*</span></label>
                         <input type="text" class="form-control" id="txtCelular" name="txtCelular" value="<?php echo isset($editPac->celularPac) ? $editPac->celularPac : null; ?>">
-                    </div>
+                    </div> 
                     <div class="col-12">
                         <input type="hidden" name="nomeAntigo">
                         <label for="filFoto" class="form-label">Adicione sua Foto</label>
@@ -228,7 +217,6 @@
                     </div>
                 </form>
             </div>
-
             <style>
                 .input-container {
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
