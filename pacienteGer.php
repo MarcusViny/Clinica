@@ -60,7 +60,7 @@
                 if (filter_has_var(INPUT_POST, 'btnGravar')) {
                     if (isset($_FILES['filFoto'])) {
                         $ext = strtolower(pathinfo($_FILES['filFoto']['name'], PATHINFO_EXTENSION));
-                        $nomeArq = filter_input(INPUT_POST, 'nomeAntigo');
+                        $nomeArq = filter_input(INPUT_POST,'nomeAntigo');
                         if (empty($nomeArq)) {
                             $nomeArq = md5(date("Y.m.d-H.i.s")) . '.' . $ext;
                         }
@@ -93,7 +93,7 @@
                         <label for="txtNome" class="form-label">Nome <span class="required">*</span></label>
                         <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome..." name="txtNome" value="<?php echo isset($editPac->nomePac) ? $editPac->nomePac : null; ?>" required>
                     </div>
-                    <div class="col-12">
+                    <div class="col-md-12">
                         <label for="txtEndereco" class="form-label">Endereço</label>
                         <input type="text" class="form-control" id="txtEndereco" placeholder="Digite seu endereço..." name="txtEndereco" value="<?php echo isset($editPac->enderecoPac) ? $editPac->enderecoPac : null; ?>">
                     </div>

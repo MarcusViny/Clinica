@@ -50,7 +50,7 @@
                     <th scope="col">img</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Cidade</th>
-                    <th scope="col">Idade</th>
+                    <th scope="col">Data de Nascimento </th>
                 </tr>
             </thead>
             <tbody>

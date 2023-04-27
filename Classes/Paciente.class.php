@@ -228,7 +228,7 @@ class Paciente extends Crud
         $celular = $this->getCelularPac();
         $foto = $this->getFotoPac();
 
-        $sqlInserir = "INSERT INTO $this->tabela (nomePac, enderecoPac, bairroPac, cidadePac, estadoPac, cepPac, nascimentoPac, emailPac, celularPac, fotoPac) 
+        $sqlInserir = " INSERT INTO $this->tabela (nomePac, enderecoPac, bairroPac, cidadePac, estadoPac, cepPac, nascimentoPac, emailPac, celularPac, fotoPac) 
         VALUES ('$nome', '$endereco', '$bairro', '$cidade', '$estado', '$cep', '$nascimento', '$email', '$celular', '$foto')";
         if (Conexao::query($sqlInserir)) {
             header('location: pacientes.php');
@@ -242,6 +242,24 @@ class Paciente extends Crud
      * @return mixed
      */
     public function atualizar($campo, $id)
-    {
+    {        
+        $nome = $this->getNomePac();
+        $endereco = $this->getEnderecoPac();
+        $bairro = $this->getBairroPac();
+        $cidade = $this->getCidadePac();
+        $estado = $this->getEstadoPac();
+        $cep = $this->getCepPac();
+        $nascimento = $this->getNascimentoPac();
+        $email = $this->getEmailPac();
+        $celular = $this->getCelularPac();
+        $foto = $this->getFotoPac();
+
+        $sqlUpdate = " UPDATE {$this->tabela} SET
+        nomePac = '$nome', enderecoPac ='$endereco',bairroPac = '$bairro',
+        cidadePac ='$cidade',estadoPac = '$estado',cepPac ='$cep', nascimentoPac = '$nascimento', emailPac = '$email'
+        ,celularPac ='$celular', fotoPac = '$foto' WHERE $campo = {$id}";
+        if (Conexao ::query($sqlUpdate)) {
+            header('location: pacientes.php');
+        }
     }
 }
