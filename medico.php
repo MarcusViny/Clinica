@@ -31,7 +31,7 @@
                                 <a class="nav-link" href="especialidade.php">Consultar Especialidade</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pacienteGer.php">Paciente</a>
+                                <a class="nav-link" href="medicoGer.php">Paciente</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
@@ -50,7 +50,6 @@
         </header>
     </body>
     <main>
-
         <table class="table table-dark table-striped-columns">
             <thead>
                 <tr>
@@ -73,13 +72,13 @@
                 ?>
                     <tr>
                         <td class="align-middle">
-                            <a href="pacienteGer.php?id=<?php echo $row->idMed ?>
+                            <a href="medicoGer.php.php?id=<?php echo $row->idMed ?>
                                 " class="btn btn-info">
                                 <span class="material-symbols-outlined">
                                     edit_square
                                 </span>
                             </a>
-                            <a href="pacienteGer.php?idDel=<?php echo $row->idMed ?>
+                            <a href="medicoGer.php?idDel=<?php echo $row->idMed ?>
                                 " class="btn btn-danger" onclick="return confirm('Deseja realmente excluir o registro')">
                                 <span class="material-symbols-outlined">
                                     delete
@@ -87,17 +86,19 @@
                             </a>
                         </td>
                         <td>
-                            <img src="imagemPac/<?php echo $row->fotoPac; ?>" class="imgred" alt="Foto do paciente
-                            <?php echo $row->nomePac; ?>">
+                            <?php echo $row->nomeMed; ?>
                         </td>
                         <td>
-                            <?php echo $row->nomePac; ?>
+                            <?php echo $row->especialidadeMed; ?>
                         </td>
                         <td>
-                            <?php echo $row->cidadePac; ?>
+                            <?php echo $row->crmMed;?>
                         </td>
                         <td>
-                            <?php echo $row->nascimentoPac; ?>
+                            <?php echo $row->celularMed?>
+                        </td>
+                        <td>
+                            <?php echo $row->emailMed; ?>
                         </td>
                     </tr>
                 <?php
@@ -106,7 +107,7 @@
             </tbody>
         </table>
         <div class="coll-12">
-            <a href="pacienteGer.php" class="btn btn-primary">
+            <a href="medicoGer.php" class="btn btn-primary">
                 <span class="material-smbols-outlined">
                     Adicione um novo Medico
                 </span>
