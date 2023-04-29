@@ -36,6 +36,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="consultar.php">Consultar</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

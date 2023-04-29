@@ -40,63 +40,18 @@
                                 <a class="nav-link" href="consultar.php">Consultar</a>
                             </li>
                         </ul>
-                    </div>                    
+                    </div>
                 </div>
             </nav>
         </header>
     </body>
+
     <main>
-        <table class="table table-dark table-striped-columns">
-            <thead>
-                <tr>
-                    <th scope="col">Acão</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Especialidade</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                spl_autoload_register(function ($class) {
-                    require_once "./Classes/{$class}.class.php";
-                });
-                $especialidade = new Especialidade();
-                $dadosBanco = $especialidade->listar();
-                while ($row = $dadosBanco->fetch_object()) {
-                ?>
-                    <tr>
-                        <td class="aling-middle">
-                            <a href="especialidadeGer.php?id=<?php echo $row->idEsp ?>
-                                " class="btn btn-info">
-                                <span class="material-symbols-outlined">
-                                    edit_square
-                                </span>
-                            </a>
-                            <a href="especialidadeGer.php?idDel=<?php echo $row->idEsp ?>
-                                " class="btn btn-danger" onclick="return confirm('Desejsa realmente excluir essa Especialidade?')">
-                                <span class="material-symbols-outlined">
-                                    Delete
-                                </span>
-                            </a>
-                        </td>
-                        <td>
-                            <?php echo $row->NomeEsp; ?>
-                        </td>
-                        <td>
-                            <?php echo $row->SelecEsp; ?>
-                        </td>
-                    </tr>
-                <?php
-                }
-                ?>
-            </tbody>
-        </table>
-        <div class="coll-6">
-            <a href="especialidadeGer.php" class="btn btn-primary">
-                <span class="material-smbols-outlined">
-                    Adicione uma nova Especialidade
-                </span>
-            </a>
-        </div>
+        <form method="POST" action="consulta-paciente.php">
+            <label for="busca">Buscar paciente:</label>
+            <input type="text" name="busca" id="busca">
+            <button type="submit">Buscar</button>
+        </form>
     </main>
 </body>
 
