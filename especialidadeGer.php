@@ -57,13 +57,12 @@
                         header("location:especialidade.php");
                     }
                 }
-                if (filter_has_var(INPUT_POST, 'btnGravar')) {
+                if (filter_has_var(INPUT_POST, 'btnGravar')) {                   
                     $especialidade = new Especialidade();
                     $id = filter_input(INPUT_POST, 'txtId');
                     $especialidade->setIdEsp($id);
                     $especialidade->setNomeEsp(filter_input(INPUT_POST, 'txtNome'));
                     $especialidade->setSelecEsp(filter_input(INPUT_POST, 'sltEsp'));
-
                     if (empty($id)) {
                         $especialidade->inserir();
                     } else {
@@ -74,12 +73,12 @@
                     <input type="hidden" name="txtId" value="<?php echo isset($editEsp->idEsp) ? $editEsp->idEsp : null; ?>">
                     <div class="col-12">
                         <label for="txtNome" class="form-label">Nome <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome..." name="txtNome" value="<?php echo isset($editEsp->nomePac) ? $editEsp->nomePac : null; ?>">
+                        <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome..." name="txtNome" value="<?php echo isset($editEsp->NomeEsp) ? $editEsp->NomeEsp : null; ?>">
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                         <label class="form-check-label" for="flexRadioDefault1">
-                            Ativo   
+                            Ativo
                         </label>
                     </div>
                     <div class="form-check" style="display: inline-block;">

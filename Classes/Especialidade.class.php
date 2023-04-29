@@ -3,7 +3,7 @@ class Especialidade extends Crud
 {
     protected $tabela = 'Especialidade';
     private $idEsp;
-    private $NomeEsp;
+    private $nomeEsp;
     private $selecEsp;
     /**
      * @return mixed
@@ -33,15 +33,15 @@ class Especialidade extends Crud
      */
     public function getNomeEsp()
     {
-        return $this->NomeEsp;
+        return $this->nomeEsp;
     }
     /**
-     * @param mixed $NomeEsp
+     * @param mixed $nomeEsp
      * @return self
      */
     public function setNomeEsp($NomeEsp): self
     {
-        $this->NomeEsp = $NomeEsp;
+        $this->nomeEsp = $NomeEsp;
         return $this;
     }
     // nao sei oq fazer 
@@ -69,7 +69,7 @@ class Especialidade extends Crud
         $nome = $this->getNomeEsp();
         $seleciona = $this->getSelecEsp();
 
-        $sqlInserir = "INSERT INTO $this->tabela (NomeEsp,selecEsp) 
+        $sqlInserir = "INSERT INTO $this->tabela (NomeEsp,SelecEsp) 
         VALUES ('$nome','$seleciona')";
         if (Conexao::query($sqlInserir)) {
             header('location:especialidade.php');
@@ -81,7 +81,7 @@ class Especialidade extends Crud
         $seleciona = $this->getSelecEsp();
 
         $sqlUpdate = " UPDATE {$this->tabela} SET
-        NomeEsp = '$nome', selecEsp ='$seleciona' WHERE $campo = {$id}";
+        NomeEsp = '$nome', SelecEsp ='$seleciona' WHERE $campo = {$id}";
         if (Conexao::query($sqlUpdate)) {
             header('location: especialidade.php');
         }
