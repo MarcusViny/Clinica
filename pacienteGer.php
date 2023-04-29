@@ -22,12 +22,12 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="especialidadeGer.php#">Especialidade</a>
+                            <a class="nav-link " href="especialidadeGer.php#">Especialidade</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="especialidade.php">Consultar Especialidade</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item <?php if (basename($_SERVER['PHP_SELF']) == 'pacienteGer.php') echo 'active'; ?>">
                             <a class="nav-link" href="pacienteGer.php">Paciente</a>
                         </li>
                         <li class="nav-item">
@@ -35,6 +35,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="consultar.php">Consultar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="medico.php">Medico</a>
                         </li>
                     </ul>
                 </div>
@@ -63,7 +66,7 @@
                 if (filter_has_var(INPUT_POST, 'btnGravar')) {
                     if (isset($_FILES['filFoto'])) {
                         $ext = strtolower(pathinfo($_FILES['filFoto']['name'], PATHINFO_EXTENSION));
-                        $nomeArq = filter_input(INPUT_POST,'nomeAntigo');
+                        $nomeArq = filter_input(INPUT_POST, 'nomeAntigo');
                         if (empty($nomeArq)) {
                             $nomeArq = md5(date("Y.m.d-H.i.s")) . '.' . $ext;
                         }
@@ -209,7 +212,7 @@
                     <div class="col-md-6">
                         <label for="txtCelular" class="form-label">Celular <span class="required">*</span></label>
                         <input type="text" class="form-control" id="txtCelular" name="txtCelular" value="<?php echo isset($editPac->celularPac) ? $editPac->celularPac : null; ?>">
-                    </div> 
+                    </div>
                     <div class="col-12">
                         <input type="hidden" name="nomeAntigo">
                         <label for="filFoto" class="form-label">Adicione sua Foto</label>

@@ -21,8 +21,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="especialidadeGer.php">Especialidade</a>
+
+                        <li class="nav-item <?php if (basename($_SERVER['PHP_SELF']) == 'especialidadeGer.php') echo 'active'; ?>">
+                            <a class="nav-link  " href="especialidadeGer.php">Especialidade</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="especialidade.php">Consultar Especialidade</a>
@@ -36,7 +37,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="consultar.php">Consultar</a>
                         </li>
-                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="medico.php">Medico</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -61,7 +64,7 @@
                         header("location:especialidade.php");
                     }
                 }
-                if (filter_has_var(INPUT_POST, 'btnGravar')) {                   
+                if (filter_has_var(INPUT_POST, 'btnGravar')) {
                     $especialidade = new Especialidade();
                     $id = filter_input(INPUT_POST, 'txtId');
                     $especialidade->setIdEsp($id);
@@ -86,7 +89,7 @@
                         </label>
                     </div>
                     <div class="form-check" style="display: inline-block;">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                         <label class="form-check-label" for="flexRadioDefault2">
                             Inativo
                         </label>

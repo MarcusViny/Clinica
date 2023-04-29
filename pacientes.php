@@ -33,11 +33,14 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="pacienteGer.php">Paciente</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item <?php if (basename($_SERVER['PHP_SELF']) == 'pacientes.php') echo 'active'; ?>">
                                 <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="consultar.php">Consultar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="medico.php">Medico</a>
                             </li>
                         </ul>
                     </div>

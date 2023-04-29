@@ -27,7 +27,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="especialidadeGer.php">Especialidade</a>
                             </li>
-                            <li class="nav-item <?php if (basename($_SERVER['PHP_SELF']) == 'especialidade.php') echo 'active'; ?>">
+                            <li class="nav-item">
                                 <a class="nav-link" href="especialidade.php">Consultar Especialidade</a>
                             </li>
                             <li class="nav-item">
@@ -39,9 +39,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="consultar.php">Consultar</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item <?php if (basename($_SERVER['PHP_SELF']) == 'medico.php') echo 'active'; ?>">
                                 <a class="nav-link" href="medico.php">Medico</a>
                             </li>
+                        </ul>
                         </ul>
                     </div>
                 </div>
@@ -49,12 +50,16 @@
         </header>
     </body>
     <main>
+
         <table class="table table-dark table-striped-columns">
             <thead>
                 <tr>
-                    <th scope="col">Acão</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Especialidade</th>
+                    <th>Ação</th>
+                    <th>Nome</th>
+                    <th>Especialidade</th>
+                    <th>CRM</th>
+                    <th>Celular</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,30 +67,37 @@
                 spl_autoload_register(function ($class) {
                     require_once "./Classes/{$class}.class.php";
                 });
-                $especialidade = new Especialidade();
-                $dadosBanco = $especialidade->listar();
+                $medico = new Medico();
+                $dadosBanco = $medico->listar();
                 while ($row = $dadosBanco->fetch_object()) {
                 ?>
                     <tr>
-                        <td class="aling-middle">
-                            <a href="especialidadeGer.php?id=<?php echo $row->idEsp ?>
+                        <td class="align-middle">
+                            <a href="pacienteGer.php?id=<?php echo $row->idMed ?>
                                 " class="btn btn-info">
                                 <span class="material-symbols-outlined">
                                     edit_square
                                 </span>
                             </a>
-                            <a href="especialidadeGer.php?idDel=<?php echo $row->idEsp ?>
-                                " class="btn btn-danger" onclick="return confirm('Desejsa realmente excluir essa Especialidade?')">
+                            <a href="pacienteGer.php?idDel=<?php echo $row->idMed ?>
+                                " class="btn btn-danger" onclick="return confirm('Deseja realmente excluir o registro')">
                                 <span class="material-symbols-outlined">
-                                    Delete
+                                    delete
                                 </span>
                             </a>
                         </td>
                         <td>
-                            <?php echo $row->NomeEsp; ?>
+                            <img src="imagemPac/<?php echo $row->fotoPac; ?>" class="imgred" alt="Foto do paciente
+                            <?php echo $row->nomePac; ?>">
                         </td>
                         <td>
-                            <?php echo $row->SelecEsp; ?>
+                            <?php echo $row->nomePac; ?>
+                        </td>
+                        <td>
+                            <?php echo $row->cidadePac; ?>
+                        </td>
+                        <td>
+                            <?php echo $row->nascimentoPac; ?>
                         </td>
                     </tr>
                 <?php
@@ -93,13 +105,14 @@
                 ?>
             </tbody>
         </table>
-        <div class="coll-6">
-            <a href="especialidadeGer.php" class="btn btn-primary">
+        <div class="coll-12">
+            <a href="pacienteGer.php" class="btn btn-primary">
                 <span class="material-smbols-outlined">
-                    Adicione uma nova Especialidade
+                    Adicione um novo Medico
                 </span>
             </a>
         </div>
+    </main>
     </main>
 </body>
 

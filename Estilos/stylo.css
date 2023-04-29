@@ -3,18 +3,28 @@
     height: 40px;
     border-radius: 30%;
 }
+
 #meu-body {
     background-image: linear-gradient(to left, #3D339E, #5C8C99);
     font-family: "Nunito", sans-serif;
 }
+
 .required {
     color: red;
     margin-left: 5px;
 }
+
 .input-container {
-    background-color:aliceblue;
+    background-color: aliceblue;
     box-shadow: 0 0 25px rgba(0, 0, 1, 0.3);
     padding: 20px;
     font-size: 22px;
     font-family: "Nunito", sans-serif;
 }
+
+th {
+    width: 20px;
+}
+.nav-item.active a {
+    color: #ffcc00; 
+  }
