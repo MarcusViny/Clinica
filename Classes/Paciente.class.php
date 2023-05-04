@@ -242,7 +242,7 @@ class Paciente extends Crud
      * @return mixed
      */
     public function atualizar($campo, $id)
-    {        
+    {
         $nome = $this->getNomePac();
         $endereco = $this->getEnderecoPac();
         $bairro = $this->getBairroPac();
@@ -258,7 +258,7 @@ class Paciente extends Crud
         nomePac = '$nome', enderecoPac ='$endereco',bairroPac = '$bairro',
         cidadePac ='$cidade',estadoPac = '$estado',cepPac ='$cep', nascimentoPac = '$nascimento', emailPac = '$email'
         ,celularPac ='$celular', fotoPac = '$foto' WHERE $campo = {$id}";
-        if (Conexao ::query($sqlUpdate)) {
+        if (Conexao::query($sqlUpdate)) {
             header('location: pacientes.php');
         }
     }

@@ -27,11 +27,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="especialidade.php">Consultar Especialidade</a>
                         </li>
-                        <li class="nav-item <?php if (basename($_SERVER['PHP_SELF']) == 'medicoGer.php') echo 'active'; ?>">
-                            <a class="nav-link" href="medicoGer.php">medico</a>
+                        <li class="nav-item <?php if (basename($_SERVER['PHP_SELF']) == 'pacienteGer.php') echo 'active'; ?>">
+                            <a class="nav-link" href="pacienteGer.php">Paciente</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="medicos.php">Relatorio de medicos</a>
+                            <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="consultar.php">Consultar</a>
@@ -53,14 +53,14 @@
                 });
                 if (fiLter_has_var(INPUT_GET, "id")) {
                     $id = filter_input(INPUT_GET, 'id');
-                    $medico = new medico();
+                    $medico = new Medico();
                     $editMed = $medico->buscar('idMed', $id);
                 }
                 if (fiLter_has_var(INPUT_GET, "idDel")) {
                     $medico = new medico();
                     $id = filter_input(INPUT_GET, 'idDel');
                     if ($medico->deletar('idMed', $id)) {
-                        header("location:medicos.php");
+                        header("location:medico.php");
                     }
                 }
                 if (filter_has_var(INPUT_POST, 'btnGravar')) {
@@ -87,51 +87,24 @@
                         <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome..." name="txtNome" value="<?php echo isset($editMed->nomeMed) ? $editMed->nomeMed : null; ?>" required>
                     </div>
                     <div class="col-md-12">
-                        <label for="txtCrm" class="form-label">Crm</label>
+                        <label for="txtCrm" class="form-label">Crm <span class="required">*</span> </label>
                         <input type="text" class="form-control" id="txtCrm" placeholder="Digite seu Crm..." name="txtCrm" value="<?php echo isset($editMed->crmMed) ? $editMed->crmMed : null; ?>">
                     </div>
-                    <div class="col-md-4">
-                        <label for="sltEsp" class="form-label">Especialidade</label>
-                        <?php $espSelec = isset($editEsp->SelecEsp) ?
-                            $editEsp->SelecEsp : null; ?>
-                        <select id="sltEsp" class="form-select" name="sltEsp">
-                            <option value="" selected hidden>Escolha...</option>
-                            <option value="E.M.M.T" <?php if ($espSelec == "E.M.M.T") {
-                                                        echo 'selected';
-                                                    } ?>>Especialização médica e mercado de trabalho</option>
-                            <option value="R.M.T.E" <?php if ($espSelec == "R.M.T.E") {
-                                                        echo 'selected';
-                                                    } ?>>Residência Médica e Título de Especialista</option>
-                            <option value="E.M.A.A.F.A" <?php if ($espSelec == "E.M.A.A.F.A") {
-                                                            echo 'selected';
-                                                        } ?>>Especialidades médica, áreas de atuação e formas de acesso</option>
-                            <option value="E.A" <?php if ($espSelec == "E.A") {
-                                                    echo 'selected';
-                                                } ?>>Especialista em Acupuntura.
-                            </option>
-                            <option value="E.A.I" <?php if ($espSelec == "E.A.I") {
-                                                        echo 'selected';
-                                                    } ?>>Especialista em Alergia e Imunologia</option>
-                            <option value="E.A" <?php if ($espSelec == "E.A") {
-                                                    echo 'selected';
-                                                } ?>>Especialista em Anestesiologista.
-                            </option>
-                            <option value="E.ANGI" <?php if ($espSelec == "E.ANGI") {
-                                                        echo 'selected';
-                                                    } ?>>Especialista em Angiologia.
-                            </option>
-                        </select>
-                        <div class="col-12">
-                            <label for="txtEmail" class="form-label">E-mail <span class="required">*</span> </label>
-                            <input type="email" class="form-control" id="txtEmail" placeholder="Digite seu email..." name="txtEmail" value="<?php echo isset($editMed->emailMed) ? $editMed->emailMed : null; ?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="txtCelular" class="form-label">Celular <span class="required">*</span></label>
-                            <input type="text" class="form-control" id="txtCelular" name="txtCelular" value="<?php echo isset($editMed->celularMed) ? $editMed->celularMed : null; ?>">
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary" name="btnGravar">Gravar</button>
-                        </div>
+                    <div class="col-md-12">
+                        <label for="txtEspecialidade" class="form-label">Especialidade</label>
+                        <input type="text" class="form-control" id="txtEspecialidade" placeholder="Digite sua Especialidade..." name="txtEspecialidade" value="<?php echo isset($editMed->crmMed) ? $editMed->especialidadeMed : null; ?>">
+                    </div>
+                    <div class="col-12">
+                        <label for="txtEmail" class="form-label">E-mail </label>
+                        <input type="email" class="form-control" id="txtEmail" placeholder="Digite seu email..." name="txtEmail" value="<?php echo isset($editMed->emailMed) ? $editMed->emailMed : null; ?>">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txtCelular" class="form-label">Celular <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="txtCelular" name="txtCelular" value="<?php echo isset($editMed->celularMed) ? $editMed->celularMed : null; ?>">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary" name="btnGravar">Gravar</button>
+                    </div>
                 </form>
             </div>
             <style>

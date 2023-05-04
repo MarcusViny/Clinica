@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="Estilos/stylo.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Consultar Especialidade</title>
+    <title>Consultar Medico</title>
 </head>
 
 <body id="meu-body">
@@ -25,13 +25,13 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="especialidadeGer.php">Especialidade</a>
+                                <a class="nav-link " href="especialidadeGer.php#">Especialidade</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="especialidade.php">Consultar Especialidade</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="medicoGer.php">Paciente</a>
+                            <li class="nav-item"> 
+                                <a class="nav-link" href="pacienteGer.php">Paciente</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="pacientes.php">Relatorio de Pacientes</a>
@@ -72,7 +72,7 @@
                 ?>
                     <tr>
                         <td class="align-middle">
-                            <a href="medicoGer.php.php?id=<?php echo $row->idMed ?>
+                            <a href="medicoGer.php?id=<?php echo $row->idMed ?>
                                 " class="btn btn-info">
                                 <span class="material-symbols-outlined">
                                     edit_square
@@ -92,10 +92,10 @@
                             <?php echo $row->especialidadeMed; ?>
                         </td>
                         <td>
-                            <?php echo $row->crmMed;?>
+                            <?php echo $row->crmMed; ?>
                         </td>
                         <td>
-                            <?php echo $row->celularMed?>
+                            <?php echo $row->celularMed ?>
                         </td>
                         <td>
                             <?php echo $row->emailMed; ?>

@@ -122,7 +122,7 @@ class Medico extends Crud
         $celular = $this->getCelularMed();
         $sqlInserir = "INSERT INTO $this->tabela (nomeMed,especialidadeMed, crmMed, emailMed, celularMed) VALUES ('$nome','$especialidade', '$crm', '$email', '$celular')";
         if (Conexao::query($sqlInserir)) {
-            header('location: medico.php');
+            header('location:medico.php');
         }
     }
     /**
@@ -131,6 +131,21 @@ class Medico extends Crud
      * @param mixed $id
      * @return mixed
      */
+    // public function atualizar($campo, $id)
+    // {
+    //     $nome = $this->getNomeMed();
+    //     $especialidade = $this->getEspecialidadeMed();
+    //     $crm = $this->getcrmMed();
+    //     $email = $this->getEmailMed();
+    //     $celular = $this->getCelularMed();
+    //     $sqlUpdate = "INSERT INTO $this->tabela (nomeMed,especialidadeMed, crmMed, emailMed, celularMed) VALUES ('$nome','$especialidade', '$crm', '$email', '$celular')";
+    //     if (Conexao::query($sqlUpdate)) {
+    //         header('location:medicoGer.php');
+    //     }
+    //     if (Conexao::query($sqlUpdate)) {
+    //         header('location:medico.php');
+    //     }
+    // }
     public function atualizar($campo, $id)
     {
         $nome = $this->getNomeMed();
@@ -138,12 +153,13 @@ class Medico extends Crud
         $crm = $this->getcrmMed();
         $email = $this->getEmailMed();
         $celular = $this->getCelularMed();
-        $sqlUpdate = "INSERT INTO $this->tabela (nomeMed,especialidadeMed, crmMed, emailMed, celularMed) VALUES ('$nome','$especialidade', '$crm', '$email', '$celular')";
+
+        $sqlUpdate = "UPDATE $this->tabela SET nomeMed = '$nome', especialidadeMed = '$especialidade', crmMed = '$crm', emailMed = '$email', celularMed = '$celular' WHERE $campo = $id";
+
         if (Conexao::query($sqlUpdate)) {
-            header('location: medico.php');
-        }
-        if (Conexao::query($sqlUpdate)) {
-            header('location: medico.php');
+            header('location:medicoGer.php');
+        } else {
+            header('location:medico.php');
         }
     }
 }

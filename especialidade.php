@@ -52,9 +52,9 @@
         <table class="table table-dark table-striped-columns">
             <thead>
                 <tr>
-                    <th scope="col">Acão</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Especialidade</th>
+                    <th>Acão</th>
+                    <th>Nome</th>
+                    <th>Especialidade</th>
                 </tr>
             </thead>
             <tbody>

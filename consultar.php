@@ -50,11 +50,13 @@
     </body>
 
     <main>
-        <form class method="POST" action="consulta-paciente.php">
-            <label for="busca">Buscar paciente:</label>
-            <input type="text" name="busca" id="busca">
-            <button type="submit">Buscar</button>
+        <form method="POST" action="pesquisar_medico.php">
+            <label for="nome_medico">Digite o nome do médico:</label>
+            <input type="text" name="nome_medico" id="nome_medico">
+            <input type="submit" value="Pesquisar">
         </form>
+
+        
     </main>
 </body>
 
