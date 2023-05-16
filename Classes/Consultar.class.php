@@ -1,35 +1,151 @@
 <?php
-$input_busca = $_POST["input_busca"];
 
-// Realizar a busca no banco de dados
-$query = "SELECT * FROM paciente WHERE nome LIKE '$input_busca%'";
-$resultado = mysqli_query($conexao, $query);
+class Consulta extends Crud
+{
+    protected $tabela = 'Consulta';
+    private $idCon;
+    private $pacienteCon;
+    private $medicoCon;
+    private $dataCon;
+    private $horaCon;
 
-if (mysqli_num_rows($resultado) > 0) {
-    // Pacientes encontrados, exibir os resultados
-    while ($row = mysqli_fetch_assoc($resultado)) {
-        $nome_paciente = $row['nome'];
-        // Exibir os resultados encontrados
-        echo "Nome do paciente: $nome_paciente<br>";
+
+
+    /**
+     * @return mixed
+     */
+    public function getTabela()
+    {
+        return $this->tabela;
     }
-} else {
-    echo "Nenhum paciente encontrado.";
-}
 
-// Realizar a busca para médicos
-$query_medico = "SELECT * FROM medico WHERE nome LIKE '$input_busca%'";
-$resultado_medico = mysqli_query($conexao, $query_medico);
-
-if (mysqli_num_rows($resultado_medico) > 0) {
-    // Médicos encontrados, exibir os resultados
-    while ($row_medico = mysqli_fetch_assoc($resultado_medico)) {
-        $nome_medico = $row_medico['nome'];
-        // Exibir os resultados encontrados
-        echo "Nome do médico: $nome_medico<br>";
+    /**
+     * @param mixed $tabela 
+     * @return self
+     */
+    public function setTabela($tabela): self
+    {
+        $this->tabela = $tabela;
+        return $this;
     }
-} else {
-    echo "Nenhum médico encontrado.";
-}
 
-// Fechar a conexão com o banco de dados
-mysqli_close($conexao);
+    /**
+     * @return mixed
+     */
+    public function getIdCon()
+    {
+        return $this->idCon;
+    }
+
+    /**
+     * @param mixed $idCon 
+     * @return self
+     */
+    public function setIdCon($idCon): self
+    {
+        $this->idCon = $idCon;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPacienteCon()
+    {
+        return $this->pacienteCon;
+    }
+
+    /**
+     * @param mixed $pacienteCon 
+     * @return self
+     */
+    public function setPacienteCon($pacienteCon): self
+    {
+        $this->pacienteCon = $pacienteCon;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMedicoCon()
+    {
+        return $this->medicoCon;
+    }
+
+    /**
+     * @param mixed $medicoCon 
+     * @return self
+     */
+    public function setMedicoCon($medicoCon): self
+    {
+        $this->medicoCon = $medicoCon;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDataCon()
+    {
+        return $this->dataCon;
+    }
+
+    /**
+     * @param mixed $dataCon 
+     * @return self
+     */
+    public function setDataCon($dataCon): self
+    {
+        $this->dataCon = $dataCon;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHoraCon()
+    {
+        return $this->horaCon;
+    }
+
+    /**
+     * @param mixed $horaCon 
+     * @return self
+     */
+    public function setHoraCon($horaCon): self
+    {
+        $this->horaCon = $horaCon;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function inserir()
+    {
+        $paciente = $this->getPacienteCon();
+        $medico = $this->getMedicoCon();
+        $data = $this->getDataCon();
+        $hora = $this->getHoraCon();
+        $sqlInserir = "INSERT INTO {$this->tabela} (pacienteCon,medicoCon,dataCon,horaCon)VALUES('$paciente','$medico','$data','$hora')";
+        if (Conexao::query($sqlInserir)) {
+            header('location: index.php');
+        }
+    }
+
+    /**
+     *
+     * @param mixed $campo
+     * @param mixed $id
+     * @return mixed
+     */
+    public function atualizar($campo, $id)
+    {
+    }
+    public function listar($where = null)
+    {
+        $sqlSelect = "select C.*, P.nomePac, M.nomeMed from {$this->tabela} C left join Paciente P on C.pacienteCon = P.idPac left join Medico M on C.medicoCon = M.idMed $where";
+        return Conexao::query($sqlSelect);
+    }
+}

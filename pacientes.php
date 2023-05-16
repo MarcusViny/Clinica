@@ -65,7 +65,13 @@
                     require_once "./Classes/{$class}.class.php";
                 });
                 $paciente = new Paciente();
-                $dadosBanco = $paciente->listar();
+                if (filter_has_var(INPUT_POST, 'txtPesquisar')) {
+                    $parametro = filter_input(INPUT_POST, 'txtPesquisar');
+                    $where = "where (nomePac like '%$parametro%' ) or (emailPac like '%$parametro%' )";
+                    $dadosBanco =  $paciente->listar($where);
+                } else {
+                    $dadosBanco =  $paciente->listar();
+                }
                 while ($row = $dadosBanco->fetch_object()) {
                 ?>
                     <tr>
@@ -82,6 +88,14 @@
                                     delete
                                 </span>
                             </a>
+                            <form action="consultar.php" method="post" style="display: inline-block;">
+                                <input type="hidden" name="pacienteCon" value="<?php echo $row->idPac ?>">
+                                <button type="submit" class="btn btn-success">
+                                    <span class="material-symbols-outlined">
+                                        description
+                                    </span>
+                                </button>
+                            </form>
                         </td>
                         <td>
                             <img src="imagemPac/<?php echo $row->fotoPac; ?>" class="imgred" alt="Adicione uma image">
