@@ -50,13 +50,18 @@
     </body>
 
     <main>
-        <form method="POST" action="pesquisar_medico.php">
-            <label for="nome_medico">Digite o nome do médico:</label>
-            <input type="text" name="nome_medico" id="nome_medico">
-            <input type="submit" value="Pesquisar">
-        </form>
+        <form method="POST" action="consulta.php">
+            <label for="input_paciente">Buscar paciente:</label>
+            <input type="text" name="input_paciente" id="input_paciente" placeholder="Digite as primeiras letras do nome do paciente">
 
-        
+            <label for="input_medico">Buscar médico:</label>
+            <input type="text" name="input_medico" id="input_medico" placeholder="Digite as primeiras letras do nome do médico">
+
+            <label for="input_data_hora">Data e Hora da Consulta:</label>
+            <input type="datetime-local" name="input_data_hora" id="input_data_hora">
+
+            <input type="submit" value="Buscar">
+        </form>
     </main>
 </body>
 

@@ -154,7 +154,8 @@ class Medico extends Crud
         $email = $this->getEmailMed();
         $celular = $this->getCelularMed();
 
-        $sqlUpdate = "UPDATE $this->tabela SET nomeMed = '$nome', especialidadeMed = '$especialidade', crmMed = '$crm', emailMed = '$email', celularMed = '$celular' WHERE $campo = $id";
+        $sqlUpdate = "UPDATE $this->tabela SET nomeMed = '$nome', especialidadeMed = '$especialidade', crmMed = '$crm', emailMed = '$email', celularMed = '$celular' 
+        WHERE $campo = $id";
 
         if (Conexao::query($sqlUpdate)) {
             header('location:medicoGer.php');

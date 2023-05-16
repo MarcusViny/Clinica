@@ -84,8 +84,8 @@
                             </a>
                         </td>
                         <td>
-                            <img src="imagemPac/<?php echo $row->fotoPac; ?>" class="imgred" alt="Foto do paciente
-                            <?php echo $row->nomePac; ?>">
+                            <img src="imagemPac/<?php echo $row->fotoPac; ?>" class="imgred" alt="Adicione uma image">
+                            <!-- <?php echo $row->nomePac; ?> -->
                         </td>
                         <td>
                             <?php echo $row->nomePac; ?>

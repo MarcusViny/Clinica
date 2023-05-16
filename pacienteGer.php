@@ -95,8 +95,8 @@
                 <form class="row g-3" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="txtId" value="<?php echo isset($editPac->idPac) ? $editPac->idPac : null; ?>">
                     <input type="hidden" name="nomeAntigo" value="<?php isset($editPac->fotoPac) ? $editPac->fotoPac : null; ?>">
-                    <div class="col-12">
-                        <label for="txtNome" class="form-label">Nome <span class="required">*</span></label>
+                    <div >
+                        <label for="txtNome" class="form-label" width="400px" >Nome <span class="required">*</span></label>
                         <input type="text" class="form-control" id="txtNome" placeholder="Digite seu nome..." name="txtNome" value="<?php echo isset($editPac->nomePac) ? $editPac->nomePac : null; ?>" required>
                     </div>
                     <div class="col-md-12">
@@ -189,12 +189,15 @@
                             <option value="SC" <?php if ($estadoSelec == "SC") {
                                                     echo 'selected';
                                                 } ?>>Santa Catarina</option>
-
                             <option value="SC" <?php if ($estadoSelec == "SP") {
                                                     echo 'selected';
                                                 } ?>>São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
+                            <option value="SE" <?php if ($estadoSelec == "SE") {
+                                                    echo 'selected';
+                                                } ?>>Sergipe</option>
+                            <option value="TO" <?php if ($estadoSelec == "TO") {
+                                                    echo 'selected';
+                                                } ?>>Tocantins</option>
                         </select>
                     </div>
                     <div class="col-md-2">

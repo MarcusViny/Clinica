@@ -1,5 +1,4 @@
 <?php
-
 class Paciente extends Crud
 {
     protected $tabela = 'Paciente';
@@ -14,8 +13,6 @@ class Paciente extends Crud
     private $emailPac;
     private $celularPac;
     private $fotoPac;
-
-
     /**
      * @return mixed
      */
@@ -23,7 +20,6 @@ class Paciente extends Crud
     {
         return $this->idPac;
     }
-
     /**
      * @param mixed $idPac 
      * @return self
@@ -33,7 +29,6 @@ class Paciente extends Crud
         $this->idPac = $idPac;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -41,7 +36,6 @@ class Paciente extends Crud
     {
         return $this->nomePac;
     }
-
     /**
      * @param mixed $nomePac 
      * @return self
@@ -51,7 +45,6 @@ class Paciente extends Crud
         $this->nomePac = $nomePac;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -59,7 +52,6 @@ class Paciente extends Crud
     {
         return $this->bairroPac;
     }
-
     /**
      * @param mixed $bairroPac 
      * @return self
@@ -69,7 +61,6 @@ class Paciente extends Crud
         $this->bairroPac = $bairroPac;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -77,7 +68,6 @@ class Paciente extends Crud
     {
         return $this->cidadePac;
     }
-
     /**
      * @param mixed $cidadePac 
      * @return self
@@ -87,7 +77,6 @@ class Paciente extends Crud
         $this->cidadePac = $cidadePac;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -95,7 +84,6 @@ class Paciente extends Crud
     {
         return $this->estadoPac;
     }
-
     /**
      * @param mixed $estadoPac 
      * @return self
@@ -105,7 +93,6 @@ class Paciente extends Crud
         $this->estadoPac = $estadoPac;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -113,7 +100,6 @@ class Paciente extends Crud
     {
         return $this->cepPac;
     }
-
     /**
      * @param mixed $cepPac 
      * @return self
@@ -123,7 +109,6 @@ class Paciente extends Crud
         $this->cepPac = $cepPac;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -131,7 +116,6 @@ class Paciente extends Crud
     {
         return $this->nascimentoPac;
     }
-
     /**
      * @param mixed $nascimentoPac 
      * @return self
@@ -141,7 +125,6 @@ class Paciente extends Crud
         $this->nascimentoPac = $nascimentoPac;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -149,7 +132,6 @@ class Paciente extends Crud
     {
         return $this->emailPac;
     }
-
     /**
      * @param mixed $emailPac 
      * @return self
@@ -159,7 +141,6 @@ class Paciente extends Crud
         $this->emailPac = $emailPac;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -167,7 +148,6 @@ class Paciente extends Crud
     {
         return $this->celularPac;
     }
-
     /**
      * @param mixed $celularPac 
      * @return self
@@ -177,7 +157,6 @@ class Paciente extends Crud
         $this->celularPac = $celularPac;
         return $this;
     }
-
     /**
      * @return mixed
      */
@@ -185,7 +164,6 @@ class Paciente extends Crud
     {
         return $this->fotoPac;
     }
-
     /**
      * @param mixed $fotoPac 
      * @return self
@@ -202,7 +180,6 @@ class Paciente extends Crud
     {
         return $this->enderecoPac;
     }
-
     /**
      * @param mixed $enderecoPac 
      * @return self
@@ -227,14 +204,12 @@ class Paciente extends Crud
         $email = $this->getEmailPac();
         $celular = $this->getCelularPac();
         $foto = $this->getFotoPac();
-
         $sqlInserir = " INSERT INTO $this->tabela (nomePac, enderecoPac, bairroPac, cidadePac, estadoPac, cepPac, nascimentoPac, emailPac, celularPac, fotoPac) 
         VALUES ('$nome', '$endereco', '$bairro', '$cidade', '$estado', '$cep', '$nascimento', '$email', '$celular', '$foto')";
         if (Conexao::query($sqlInserir)) {
             header('location: pacientes.php');
         }
     }
-
     /**
      *
      * @param mixed $campo
@@ -253,7 +228,6 @@ class Paciente extends Crud
         $email = $this->getEmailPac();
         $celular = $this->getCelularPac();
         $foto = $this->getFotoPac();
-
         $sqlUpdate = " UPDATE {$this->tabela} SET
         nomePac = '$nome', enderecoPac ='$endereco',bairroPac = '$bairro',
         cidadePac ='$cidade',estadoPac = '$estado',cepPac ='$cep', nascimentoPac = '$nascimento', emailPac = '$email'

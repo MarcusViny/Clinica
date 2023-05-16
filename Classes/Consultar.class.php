@@ -1,28 +1,35 @@
 <?php
-// Recupere o nome do médico pesquisado
-$nome_medico = $_POST["nome_medico"];
+$input_busca = $_POST["input_busca"];
 
-// Execute a consulta SQL para obter as informações do médico
-$sql = "SELECT * FROM medico WHERE nome = '$nome_medico'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    echo "<table>
-        <tr>
-            <th>Nome</th>
-            <th>Especialidade</th>
-            <th>CRM</th>
-            <th>Telefone</th>
-        </tr>";
-        while($row = $result->fetch_assoc()) {
-        echo "<tr>
-            <td>".$row["nomeMed"]."</td>
-            <td>".$row["especialidadeMed"]."</td>
-            <td>".$row["crmMed"]."</td>
-            <td>".$row["celularMed"]."</td>
-        </tr>";
-        }
-        echo "
-    </table>";
-    } else {
-    echo "Nenhum médico encontrado com esse nome.";
+// Realizar a busca no banco de dados
+$query = "SELECT * FROM paciente WHERE nome LIKE '$input_busca%'";
+$resultado = mysqli_query($conexao, $query);
+
+if (mysqli_num_rows($resultado) > 0) {
+    // Pacientes encontrados, exibir os resultados
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $nome_paciente = $row['nome'];
+        // Exibir os resultados encontrados
+        echo "Nome do paciente: $nome_paciente<br>";
     }
+} else {
+    echo "Nenhum paciente encontrado.";
+}
+
+// Realizar a busca para médicos
+$query_medico = "SELECT * FROM medico WHERE nome LIKE '$input_busca%'";
+$resultado_medico = mysqli_query($conexao, $query_medico);
+
+if (mysqli_num_rows($resultado_medico) > 0) {
+    // Médicos encontrados, exibir os resultados
+    while ($row_medico = mysqli_fetch_assoc($resultado_medico)) {
+        $nome_medico = $row_medico['nome'];
+        // Exibir os resultados encontrados
+        echo "Nome do médico: $nome_medico<br>";
+    }
+} else {
+    echo "Nenhum médico encontrado.";
+}
+
+// Fechar a conexão com o banco de dados
+mysqli_close($conexao);
